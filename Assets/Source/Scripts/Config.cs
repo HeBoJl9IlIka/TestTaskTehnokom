@@ -5,7 +5,17 @@ namespace Company.TestTask.Model
         public enum ItemType
         {
             Ticket,
-            Ball
+            Skin1,
+            Skin2,
+            Location1,
+            Location2,
+            Location3
+        }
+
+        public enum CurrencyType
+        {
+            Ticket,
+            Dollars
         }
 
         // DateKeeper
@@ -14,11 +24,15 @@ namespace Company.TestTask.Model
         public const string DateKeeperYear = "Year";
         public const string AmountDays = "AmountDays";
         public const string MaxAmountDays = "MaxAmountDays";
+        public const string CurrentLevel = "CurrentLevel";
         // DailyReward
         public const string RewardDay = "Day";
         public const string RewardX = "X";
-        public const float SliderDuration = 1f;
-        public const float DelayShowingReward = 2f;
-        public const float DelayHideReward = DelayShowingReward + 2f;
+        public const float SliderDuration = 1;
+        public const float DelayShowingReward = 2;
+        public const float DelayHideReward = DelayShowingReward + 2;
+        // Shop
+        public const float SpaceBetweenCells = 40;
+        public const float SpaceBetweenTitle = 70;
     }
 }

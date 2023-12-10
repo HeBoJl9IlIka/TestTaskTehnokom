@@ -5,7 +5,7 @@ namespace Company.TestTask.Model
 {
     public class DateKeeper : IDataKeeper<DateTime>
     {
-        public DateTime LoadDate()
+        public DateTime Load()
         {
             int day = PlayerPrefs.GetInt(Config.DateKeeperDay);
             int month = PlayerPrefs.GetInt(Config.DateKeeperMonth);
@@ -14,7 +14,7 @@ namespace Company.TestTask.Model
             return new DateTime(year, month, day);
         }
 
-        public void SaveDate(DateTime dateTime)
+        public void Save(DateTime dateTime)
         {
             int year = dateTime.Year;
             int month = dateTime.Month;

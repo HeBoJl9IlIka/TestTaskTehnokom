@@ -4,7 +4,7 @@ namespace Company.TestTask.Model
 {
     public class AmountDaysKeeper : IDataKeeper<int>
     {
-        public int LoadDate()
+        public int Load()
         {
             if (PlayerPrefs.GetInt(Config.MaxAmountDays) == PlayerPrefs.GetInt(Config.AmountDays))
                 return 0;
@@ -12,7 +12,7 @@ namespace Company.TestTask.Model
             return PlayerPrefs.GetInt(Config.AmountDays);
         }
 
-        public void SaveDate(int maxDays)
+        public void Save(int maxDays)
         {
             PlayerPrefs.SetInt(Config.MaxAmountDays, maxDays);
 

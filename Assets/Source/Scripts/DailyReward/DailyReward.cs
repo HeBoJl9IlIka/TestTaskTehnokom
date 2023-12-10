@@ -13,7 +13,7 @@ namespace Company.TestTask.Model
         private DateTime _zeroDate;
 
         public int DayNumber => GetNumberReward() + 1;
-        public int AmountDays => _amountDaysKeeper.LoadDate();
+        public int AmountDays => _amountDaysKeeper.Load();
         public int MaxAmountDays => _rewards.Length;
 
         public event Action<Reward> Awarded;
@@ -30,13 +30,13 @@ namespace Company.TestTask.Model
         {
             try
             {
-                _lastDate = _dateKeeper.LoadDate();
+                _lastDate = _dateKeeper.Load();
                 UnblockReward();
             }
             catch (ArgumentOutOfRangeException)
             {
                 _firstDate = DateTime.Now;
-                _dateKeeper.SaveDate(_firstDate);
+                _dateKeeper.Save(_firstDate);
                 UnblockReward();
             }
 
@@ -57,7 +57,7 @@ namespace Company.TestTask.Model
                 foreach (var reward in _rewards)
                     reward.Unblock(GetNumberReward() + 1);
 
-                _dateKeeper.SaveDate(_currentDate);
+                _dateKeeper.Save(_currentDate);
                 _lastDate = _currentDate;
             }
         }
@@ -81,7 +81,7 @@ namespace Company.TestTask.Model
         private void OnGetted(Reward reward)
         {
             Awarded?.Invoke(reward);
-            _amountDaysKeeper.SaveDate(_rewards.Length);
+            _amountDaysKeeper.Save(_rewards.Length);
         }
     }
 }
