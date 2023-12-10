@@ -50,7 +50,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _title: Character 2
-  _type: 3
+  _type: 2
   _currency: 0
   _icon: {fileID: 21300000, guid: 4bd336cd12bd9b849805db04899107cc, type: 3}
   _isOne: 1

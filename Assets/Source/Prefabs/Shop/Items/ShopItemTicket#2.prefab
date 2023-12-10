@@ -50,7 +50,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _title: '[Lucky chest]'
-  _type: 1
+  _type: 0
   _currency: 1
   _icon: {fileID: 21300000, guid: e893d48a0e3e13640a90a6ab8c5474bd, type: 3}
   _isOne: 0

@@ -34,5 +34,7 @@ namespace Company.TestTask.Model
         // Shop
         public const float SpaceBetweenCells = 40;
         public const float SpaceBetweenTitle = 70;
+        // LevelsMenu
+        public const int FirstLevelNumber = 1;
     }
 }

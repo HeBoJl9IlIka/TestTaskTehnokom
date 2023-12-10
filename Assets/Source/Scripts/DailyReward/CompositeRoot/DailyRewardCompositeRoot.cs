@@ -3,6 +3,7 @@ using Company.TestTask.Model;
 using Company.TestTask.Presenter;
 using System;
 using UnityEngine;
+using UnityEngine.UI;
 
 namespace Company.TestTask.CompositeRoot
 {
@@ -12,6 +13,8 @@ namespace Company.TestTask.CompositeRoot
     [RequireComponent(typeof(DailyRewardFactory))]
     public class DailyRewardCompositeRoot : MonoBehaviour
     {
+        [SerializeField] private Button _buttonOpeningDailyReward;
+
         private DailyReward _dailyReward;
         private IDataKeeper<DateTime> _dateKeeper;
         private IDataKeeper<int> _amountDaysKeeper;
