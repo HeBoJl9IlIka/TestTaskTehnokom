@@ -10,8 +10,9 @@ public class ShopCompositeRoot : MonoBehaviour
     private IDataKeeper<Config.ItemType[]> _itemsKeeper;
     private Shop _shop;
     private ShopFactory _shopFactory;
+    private ShopPresenter _shopPresenter;
 
-    public ShopPresenter ShopPresenter;
+    public ShopPresenter ShopPresenter => _shopPresenter;
 
     public void Init(IDataKeeper<int> levelsKeeper, IDataKeeper<Config.ItemType[]> itemsKeeper)
     {
@@ -23,7 +24,7 @@ public class ShopCompositeRoot : MonoBehaviour
     private void Awake()
     {
         _shopFactory = GetComponent<ShopFactory>();
-        _shop = _shopFactory.Create(_levelsKeeper, _itemsKeeper, out ShopPresenter);
+        _shop = _shopFactory.Create(_levelsKeeper, _itemsKeeper, out _shopPresenter);
     }
 
     private void OnEnable()

@@ -42,7 +42,7 @@ namespace Company.TestTask.Factory
             else
                 _lastCellHeight += Config.SpaceBetweenCells + CellHeight;
 
-            rectTransform.position = new Vector2(rectTransform.position.x, -_lastCellHeight);
+            rectTransform.anchoredPosition = new Vector2(rectTransform.anchoredPosition.x, -_lastCellHeight);
         }
 
         private float GetCellHeight()

@@ -21,7 +21,7 @@ namespace Company.TestTask.Factory
             if (newShopSection.TryGetComponent(out RectTransform rectTransform))
             {
                 float positionVartical = rectTransform.sizeDelta.y / 2 + positionVertical;
-                rectTransform.position = new Vector2(rectTransform.position.x, -positionVartical);
+                rectTransform.anchoredPosition = new Vector2(rectTransform.anchoredPosition.x, -positionVartical);
             }
 
             newShopSection.Init(_title);
