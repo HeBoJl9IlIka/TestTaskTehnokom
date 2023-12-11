@@ -25,6 +25,7 @@ namespace Company.TestTask.Model
         public const string AmountDays = "AmountDays";
         public const string MaxAmountDays = "MaxAmountDays";
         public const string CurrentLevel = "CurrentLevel";
+        public const string AmountMoneys = "AmountMoneys";
         // DailyReward
         public const string RewardDay = "Day";
         public const string RewardX = "X";
