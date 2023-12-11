@@ -1,5 +1,6 @@
 using Company.TestTask.Factory;
 using Company.TestTask.Model;
+using Company.TestTask.Presenter;
 using UnityEngine;
 
 [RequireComponent(typeof(ShopFactory))]
@@ -9,6 +10,8 @@ public class ShopCompositeRoot : MonoBehaviour
     private IDataKeeper<Config.ItemType[]> _itemsKeeper;
     private Shop _shop;
     private ShopFactory _shopFactory;
+
+    public ShopPresenter ShopPresenter;
 
     public void Init(IDataKeeper<int> levelsKeeper, IDataKeeper<Config.ItemType[]> itemsKeeper)
     {
@@ -20,7 +23,7 @@ public class ShopCompositeRoot : MonoBehaviour
     private void Awake()
     {
         _shopFactory = GetComponent<ShopFactory>();
-        _shop = _shopFactory.Create(_levelsKeeper, _itemsKeeper);
+        _shop = _shopFactory.Create(_levelsKeeper, _itemsKeeper, out ShopPresenter);
     }
 
     private void OnEnable()

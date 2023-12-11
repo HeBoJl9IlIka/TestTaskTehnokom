@@ -1,5 +1,6 @@
 using Company.TestTask.Model;
 using DG.Tweening;
+using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -8,6 +9,8 @@ namespace Company.TestTask.Presenter
     [RequireComponent(typeof(Slider))]
     public class DaysProgressBarPresenter : MonoBehaviour
     {
+        [SerializeField] private TMP_Text _amountDays;
+
         private DailyReward _dailyReward;
         private Slider _slider;
 
@@ -42,6 +45,7 @@ namespace Company.TestTask.Presenter
         {
             int value = (int)_slider.value;
             _slider.DOValue(++value, Config.SliderDuration);
+            _amountDays.text = value.ToString() + "/" + _slider.maxValue.ToString();
         }
     }
 }

@@ -7,6 +7,7 @@ namespace Company.TestTask.Presenter
     {
         [SerializeField] private Transform _sliderContainer;
         [SerializeField] private Transform[] _rewardsContainers;
+        [SerializeField] private GameObject _container;
 
         private DailyReward _dailyReward;
 
@@ -22,11 +23,13 @@ namespace Company.TestTask.Presenter
         private void OnEnable()
         {
             _dailyReward.Awarded += OnAwarded;
+            _dailyReward.Showing += OnShowing;
         }
 
         private void OnDisable()
         {
             _dailyReward.Awarded -= OnAwarded;
+            _dailyReward.Showing -= OnShowing;
         }
 
         private void OnAwarded(Reward reward)
@@ -34,6 +37,11 @@ namespace Company.TestTask.Presenter
             Invoke(nameof(Hide), Config.DelayShowingReward);
         }
 
-        private void Hide() => gameObject.SetActive(false);
+        private void OnShowing()
+        {
+            _container.SetActive(true);
+        }
+
+        private void Hide() => _container.SetActive(false);
     }
 }

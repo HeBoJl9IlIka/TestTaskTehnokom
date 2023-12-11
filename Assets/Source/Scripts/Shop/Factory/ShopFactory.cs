@@ -10,11 +10,11 @@ namespace Company.TestTask.Factory
         [SerializeField] private ShopPresenter _template;
         [SerializeField] private ShopSectionFactory[] _shopSectionsFactories;
 
-        public Shop Create(IDataKeeper<int> levelsKeeper, IDataKeeper<Config.ItemType[]> itemsKeeper)
+        public Shop Create(IDataKeeper<int> levelsKeeper, IDataKeeper<Config.ItemType[]> itemsKeeper, out ShopPresenter shopPresenter)
         {
             float lastSectionHeight = 0;
             List<ShopItem> shopItems = new List<ShopItem>();
-            ShopPresenter shopPresenter = Instantiate(_template);
+            shopPresenter = Instantiate(_template);
 
             foreach(var shopSection in _shopSectionsFactories)
             {

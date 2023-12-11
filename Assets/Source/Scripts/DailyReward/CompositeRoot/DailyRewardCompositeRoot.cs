@@ -33,7 +33,7 @@ namespace Company.TestTask.CompositeRoot
             _dateKeeper = new DateKeeper();
             _amountDaysKeeper = new AmountDaysKeeper();
             _dailyRewardPresenter = _dailyRewardFactory.Create();
-            _dailyReward = new DailyReward(_dateKeeper, _amountDaysKeeper, _rewardFactory.Create(_dailyRewardPresenter.RewardsContainers));
+            _dailyReward = new DailyReward(_dateKeeper, _amountDaysKeeper, _rewardFactory.Create(_dailyRewardPresenter.RewardsContainers), _buttonOpeningDailyReward);
             _dailyRewardPresenter.Init(_dailyReward);
             _sliderFactory.Create(_dailyReward, _dailyRewardPresenter.SliderContainer);
             _rewardGiverFactory.Create(_dailyReward);

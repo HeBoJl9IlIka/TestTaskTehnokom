@@ -1,4 +1,5 @@
 using System;
+using UnityEngine.UI;
 
 namespace Company.TestTask.Model
 {
@@ -11,19 +12,22 @@ namespace Company.TestTask.Model
         private DateTime _firstDate;
         private DateTime _lastDate;
         private DateTime _zeroDate;
+        private Button _buttonOpeningDailyReward;
 
         public int DayNumber => GetNumberReward() + 1;
         public int AmountDays => _amountDaysKeeper.Load();
         public int MaxAmountDays => _rewards.Length;
 
         public event Action<Reward> Awarded;
+        public event Action Showing;
 
-        public DailyReward(IDataKeeper<DateTime> dataKeeper, IDataKeeper<int> amountDaysKeeper, Reward[] rewards)
+        public DailyReward(IDataKeeper<DateTime> dataKeeper, IDataKeeper<int> amountDaysKeeper, Reward[] rewards, Button buttonOpeningDailyReward)
         {
             _dateKeeper = dataKeeper;
             _amountDaysKeeper = amountDaysKeeper;
             _rewards = rewards;
             _currentDate = DateTime.Now;
+            _buttonOpeningDailyReward = buttonOpeningDailyReward;
         }
 
         public void Enable()
@@ -42,12 +46,16 @@ namespace Company.TestTask.Model
 
             foreach (Reward reward in _rewards)
                 reward.Getted += OnGetted;
+
+            _buttonOpeningDailyReward.onClick.AddListener(() => Showing?.Invoke());
         }
 
         public void Disable()
         {
             foreach (Reward reward in _rewards)
                 reward.Getted -= OnGetted;
+
+            _buttonOpeningDailyReward.onClick.RemoveListener(() => Showing?.Invoke());
         }
 
         private void UnblockReward()
